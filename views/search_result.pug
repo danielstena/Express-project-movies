@@ -1,0 +1,10 @@
+extends index.pug
+
+block search_result
+        .movie
+            h2=  "Movie: " + svar.Name 
+            h3=  "Grade: " + svar.Score
+            img.movie_img(src= svar.Poster)
+            br
+            a(href='/')
+                button.links BACK

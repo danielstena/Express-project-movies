@@ -1,0 +1,12 @@
+extends index.pug
+
+block removeform
+  div.formDiv
+    form(action='/removesubmit')
+      h2 Remove a movie!
+      div.box 
+        p name:
+        input(type='text', name='movie')
+        br
+        br
+      input(type='submit', value='Submit') 

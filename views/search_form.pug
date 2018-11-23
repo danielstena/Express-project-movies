@@ -1,0 +1,10 @@
+extends index.pug
+
+block searchform
+  div.formDiv
+    form(action='/searchsubmit')
+      h1 Search for a movie!
+      .form
+        div.box 
+          input.input(type='text', name='movie', placeholder='movie name')
+      input.button(type='submit', value='SEARCH')

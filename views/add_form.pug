@@ -1,0 +1,18 @@
+extends index.pug
+
+block addform
+  div.formDiv
+    form(action='/addsubmit')
+      h1 Add a movie and a score!
+      .form
+        div.box 
+          input.input(type='text', name='movie', placeholder='movie')
+        div.box  
+          input.input(type='text', name='grade', placeholder='score')
+        div.box  
+          input.input(type='text', name='url', placeholder='poster')
+        br
+      input.button(type='submit', value='Submit')
+
+      
+
