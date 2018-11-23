@@ -61,9 +61,9 @@ const app = express();
 
     //VISAR ALLA FILMER//
 
-    app.get('/movies', function(request, response){
-        return response.render('movies', {lista})
-    });
+        app.get('/movies', function(request, response){
+            return response.render('movies', {lista})
+        });
 
     //VISAR ALLA FILMER//
 
@@ -148,14 +148,22 @@ const app = express();
             for(var i = 0; i < lista.length; i++){
                 
                 if(lista[i].Name == movie){
-                    lista.splice(i, 1)
-                  
-                    var stringified = JSON.stringify(lista, null, 2);
+                    
+                    //Prevents user from deleting origianl json files.
+                    if(!lista[i].original){
 
-                    //skriver informationen till lista.json
-                    fs.writeFileSync('movies.json', stringified);
-                
-                    svar = {movie}
+                        lista.splice(i, 1)
+                        
+                        var stringified = JSON.stringify(lista, null, 2);
+                        
+                        //skriver informationen till lista.json
+                        fs.writeFileSync('movies.json', stringified);
+                        
+                        svar = {movie}
+                    }
+                    else{
+                        response.send("This movie can not be removed")
+                    }
                 } 
             }
             if(svar){
