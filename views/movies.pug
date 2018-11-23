@@ -4,6 +4,6 @@ block show_all_movies
     div.movies
         each Movies, i in lista
             div.movie
-                h2=  "Movie: " + Movies.Name 
-                h3=  "Grade: " + Movies.grade
+                h1=  Movies.Name 
+                h2=  "Score: " + Movies.grade
                 img.movie_img(src= Movies.Poster)
